@@ -93,7 +93,6 @@ class FlashFilesystem extends Filesystem {
     }
     public override function read(file: String): String {
         var so = flash.net.SharedObject.getLocal(file);
-        trace(so.data);
         return so.data.filedata;
     }
     public override function delete(file: String) {
@@ -139,17 +138,13 @@ class Hxkv {
             json = json.h;
         }
         for(n in Reflect.fields(json)) {
-            trace(n, Reflect.field(json, n));
             data.set(n, Reflect.field(json, n));
         }
-
-        trace(data, json);
     }
 
     public function set(key: String, value: Dynamic): Void {
         data.set(key, value);
-        trace(data);
-
+        this.flush();
     }
 
     public function get(key: String): Dynamic {
@@ -157,7 +152,6 @@ class Hxkv {
     }
     
     public function flush() {
-        trace(data);
         this.fs.write(this.name+".json", Json.stringify(data));
     }
 }

@@ -4,7 +4,7 @@
   "license": "GPL",
   "tags": ["cross", "keyvalue", "kv", "database", "json", "light", "crossplatform"],
   "description": "HXKV - Maintained key-value database based on haxe.Json",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "releasenote": "First release~",
   "contributors": ["yourfriendoss"],
   "dependencies": {
